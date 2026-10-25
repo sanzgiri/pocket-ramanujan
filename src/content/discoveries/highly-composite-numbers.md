@@ -39,7 +39,7 @@ sources:
 related: []
 formulas:
   - label: Divisor count from prime factors
-    latex: n=\\prod_{i=1}^{r}p_i^{a_i}\\quad\\Longrightarrow\\quad d(n)=\\prod_{i=1}^{r}(a_i+1)
+    latex: n=\prod_{i=1}^{r}p_i^{a_i}\quad\Longrightarrow\quad d(n)=\prod_{i=1}^{r}(a_i+1)
     description: If n has prime factor exponents a_i, its number of positive divisors is the product of one more than each exponent.
 ---
 

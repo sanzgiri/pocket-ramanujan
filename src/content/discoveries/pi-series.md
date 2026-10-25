@@ -39,7 +39,7 @@ sources:
 related: []
 formulas:
   - label: Ramanujan's rapidly convergent pi series
-    latex: \\frac{1}{\\pi}=\\frac{2\\sqrt{2}}{9801}\\sum_{k=0}^{\\infty}\\frac{(4k)!(1103+26390k)}{(k!)^4 396^{4k}}
+    latex: \frac{1}{\pi}=\frac{2\sqrt{2}}{9801}\sum_{k=0}^{\infty}\frac{(4k)!(1103+26390k)}{(k!)^4 396^{4k}}
     description: The reciprocal of pi equals a constant times a rapidly convergent infinite series.
 ---
 

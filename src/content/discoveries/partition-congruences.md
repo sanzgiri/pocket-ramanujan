@@ -37,7 +37,7 @@ sources:
 related: []
 formulas:
   - label: Ramanujan's three famous congruences
-    latex: p(5n+4) \\equiv 0 \\pmod{5},\\quad p(7n+5) \\equiv 0 \\pmod{7},\\quad p(11n+6) \\equiv 0 \\pmod{11}
+    latex: 'p(5n+4) \equiv 0 \pmod{5},\quad p(7n+5) \equiv 0 \pmod{7},\quad p(11n+6) \equiv 0 \pmod{11}'
     description: For every nonnegative integer n, the corresponding partition count is divisible by 5, 7, or 11.
 ---
 
