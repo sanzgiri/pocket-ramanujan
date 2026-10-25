@@ -1,0 +1,17 @@
+<form class="filter-bar" aria-label="Discovery filters" data-filter-form>
+  <label>Topic<select id="topic-filter" aria-label="Filter by topic" data-filter="topic"><option value="">All topics</option><option value="Partition theory">Partition theory</option><option value="Formulas for pi">Formulas for pi</option><option value="Number theory">Number theory</option></select></label>
+  <label>Difficulty<select id="difficulty-filter" aria-label="Filter by difficulty" data-filter="difficulty"><option value="">All levels</option><option value="introductory">Introductory</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></label>
+  <label>Type<select id="result-filter" aria-label="Filter by result type" data-filter="result-type"><option value="">All types</option><option value="theorem">Theorem</option><option value="approximation">Approximation</option><option value="concept">Concept</option></select></label>
+</form>
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-filter-form]');
+  form?.addEventListener('change', () => {
+    const values = Object.fromEntries(new FormData(form).entries());
+    document.querySelectorAll<HTMLElement>('[data-topic]').forEach((card) => {
+      const visible = (!values.topic || card.dataset.topic === values.topic)
+        && (!values.difficulty || card.dataset.difficulty === values.difficulty)
+        && (!values['result-type'] || card.dataset.resultType === values['result-type']);
+      card.hidden = !visible;
+    });
+  });
+</script>

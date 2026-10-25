@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import DiscoveryCard from '../../components/DiscoveryCard.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const discoveries = await getCollection('discoveries');
+---
+<BaseLayout title="Browse discoveries — Pocket Ramanujan" description="Browse Ramanujan discoveries by topic, difficulty, and type.">
+  <div class="shell page-shell browse-page">
+    <header class="page-heading"><p class="eyebrow">The collection</p><h1>Browse discoveries</h1><p>Important ideas, carefully explained one page at a time.</p></header>
+    <FilterBar />
+    <div class="browse-list">{discoveries.map(({ data }) => <DiscoveryCard slug={data.slug} title={data.title} summary={data.summary} category={data.category} difficulty={data.difficulty} resultType={data.resultType} hasApplications={data.applications.length > 0} />)}</div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,8 @@
+---
+interface Props { slug: string; title: string; summary: string; category: string; difficulty: string; resultType: string; hasApplications: boolean; }
+const { slug, title, summary, category, difficulty, resultType, hasApplications } = Astro.props;
+---
+<a class="browse-card" href={`/discoveries/${slug}/`} data-topic={category} data-difficulty={difficulty} data-result-type={resultType} data-search-text={`${title} ${summary} ${category}`}>
+  <div><span class="card-kicker">{category}</span><h2>{title}</h2><p>{summary}</p></div>
+  <div class="browse-card-meta"><span>{difficulty}</span><span>{resultType}</span>{hasApplications && <span>applications</span>}</div>
+</a>

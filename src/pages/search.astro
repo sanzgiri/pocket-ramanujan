@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const discoveries = await getCollection('discoveries');
+---
+<BaseLayout title="Search — Pocket Ramanujan" description="Search the Pocket Ramanujan collection.">
+  <div class="shell page-shell search-page">
+    <header class="page-heading"><p class="eyebrow">Find an idea</p><h1>Search the collection</h1><p>Search titles, topics, summaries, and applications.</p></header>
+    <form class="search-form" role="search" data-search-form><label for="site-search">Search</label><input id="site-search" type="search" placeholder="Try partitions, pi, or divisors" autofocus /><p class="search-status" aria-live="polite" data-search-status>{discoveries.length} discoveries</p></form>
+    <div class="browse-list" data-search-results>{discoveries.map(({ data }) => <a class="browse-card" href={`/discoveries/${data.slug}/`} data-search-card data-search-text={`${data.title} ${data.summary} ${data.category} ${data.applications.map((application) => application.text).join(' ')}`}><div><span class="card-kicker">{data.category}</span><h2>{data.title}</h2><p>{data.summary}</p></div><div class="browse-card-meta"><span>{data.difficulty}</span><span>{data.resultType}</span></div></a>)}</div>
+  </div>
+</BaseLayout>
+<script>
+  const form = document.querySelector('[data-search-form]');
+  const input = document.querySelector<HTMLInputElement>('#site-search');
+  const status = document.querySelector<HTMLElement>('[data-search-status]');
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-search-card]')];
+  form?.addEventListener('submit', (event) => event.preventDefault());
+  input?.addEventListener('input', () => {
+    const query = input.value.trim().toLowerCase();
+    let count = 0;
+    cards.forEach((card) => { const visible = !query || card.dataset.searchText?.toLowerCase().includes(query); card.hidden = !visible; if (visible) count += 1; });
+    if (status) status.textContent = query ? `${count} matching discoveries` : `${cards.length} discoveries`;
+  });
+</script>

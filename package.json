@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "pagefind --site dist",
     "preview": "astro preview",
     "check": "astro check",
     "test": "vitest run"
@@ -31,6 +32,7 @@
     "@astrojs/check": "^0.9.12",
     "@playwright/test": "^1.64.1",
     "@types/node": "^26.6.5",
+    "pagefind": "^1.5.2",
     "typescript": "^6.0.3",
     "vitest": "^5.0.5"
   }
