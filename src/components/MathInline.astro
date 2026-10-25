@@ -1,9 +1,12 @@
 ---
+import katex from 'katex';
+
 interface Props {
   latex: string;
   description?: string;
 }
 
 const { latex, description = latex } = Astro.props;
+const rendered = katex.renderToString(latex, { throwOnError: true, output: 'htmlAndMathml' });
 ---
-<span class="math-inline" aria-label={description} data-latex={latex}><code>{latex}</code></span>
+<span class="math-inline" aria-label={description} data-latex={latex} set:html={rendered}></span>
