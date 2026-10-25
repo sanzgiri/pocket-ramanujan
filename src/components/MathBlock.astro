@@ -1,4 +1,6 @@
 ---
+import katex from 'katex';
+
 interface Props {
   latex: string;
   description: string;
@@ -6,11 +8,11 @@ interface Props {
 }
 
 const { latex, description, label = 'Mathematical formula' } = Astro.props;
+const rendered = katex.renderToString(latex, { displayMode: true, throwOnError: true, output: 'htmlAndMathml' });
 ---
 <figure class="math-block" aria-label={label}>
-  <div class="math-block-inner" data-latex={latex}>
+  <div class="math-block-inner" set:html={rendered}>
     <span class="sr-only">{description}</span>
-    <code>{latex}</code>
   </div>
   <figcaption>{description}</figcaption>
 </figure>

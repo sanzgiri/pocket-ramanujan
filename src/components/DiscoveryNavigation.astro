@@ -1,0 +1,8 @@
+---
+interface Props { previous?: { slug: string; title: string }; next?: { slug: string; title: string }; }
+const { previous, next } = Astro.props;
+---
+<nav class="discovery-navigation" aria-label="Discovery navigation">
+  {previous ? <a href={`/discoveries/${previous.slug}/`}><span>Previous</span><strong>{previous.title}</strong></a> : <span></span>}
+  {next ? <a class="next-link" href={`/discoveries/${next.slug}/`}><span>Next</span><strong>{next.title}</strong></a> : <span></span>}
+</nav>

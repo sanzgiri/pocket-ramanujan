@@ -1,0 +1,33 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import DiscoveryPage from '../../components/DiscoveryPage.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('discoveries');
+  return entries.map((entry, index) => {
+    const previous = entries[index - 1];
+    const next = entries[index + 1];
+    return {
+      params: { slug: entry.data.slug },
+      props: {
+        entry,
+        previous: previous ? { slug: previous.data.slug, title: previous.data.title } : undefined,
+        next: next ? { slug: next.data.slug, title: next.data.title } : undefined,
+        related: entries.filter((candidate) => entry.data.related.includes(candidate.data.slug)).map((candidate) => ({ slug: candidate.data.slug, title: candidate.data.title, summary: candidate.data.summary })),
+      },
+    };
+  });
+}
+
+interface Props {
+  entry: CollectionEntry<'discoveries'>;
+  previous?: { slug: string; title: string };
+  next?: { slug: string; title: string };
+  related: { slug: string; title: string; summary: string }[];
+}
+const { entry, previous, next, related } = Astro.props;
+---
+<BaseLayout title={`${entry.data.title} — Pocket Ramanujan`} description={entry.data.summary}>
+  <DiscoveryPage entry={entry} previous={previous} next={next} related={related} />
+</BaseLayout>

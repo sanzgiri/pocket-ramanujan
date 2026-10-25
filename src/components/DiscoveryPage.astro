@@ -1,0 +1,73 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import DiscoveryMeta from './DiscoveryMeta.astro';
+import DiscoveryNavigation from './DiscoveryNavigation.astro';
+import ExploreLinks from './ExploreLinks.astro';
+import MathBlock from './MathBlock.astro';
+import RelatedDiscoveries from './RelatedDiscoveries.astro';
+import SourceList from './SourceList.astro';
+
+interface Props {
+  entry: CollectionEntry<'discoveries'>;
+  previous?: { slug: string; title: string };
+  next?: { slug: string; title: string };
+  related: { slug: string; title: string; summary: string }[];
+}
+const { entry, previous, next, related } = Astro.props;
+const { data } = entry;
+---
+<article class="discovery-shell shell">
+  <header class="discovery-hero">
+    <a class="back-link" href="/discoveries/">← Browse all discoveries</a>
+    <DiscoveryMeta category={data.category} period={data.period} difficulty={data.difficulty} attribution={data.attribution} />
+    <h1>{data.title}</h1>
+    <p class="discovery-summary">{data.summary}</p>
+  </header>
+
+  <div class="discovery-layout">
+    <div class="discovery-main">
+      <section aria-labelledby="idea-title">
+        <p class="eyebrow">The idea</p>
+        <h2 id="idea-title">In one sentence</h2>
+        <p class="lead">{data.intuition}</p>
+      </section>
+      <section aria-labelledby="math-title">
+        <p class="eyebrow">The mathematics</p>
+        <h2 id="math-title">What the symbols say</h2>
+        <p>{data.notation}</p>
+        {data.formulas.map((formula) => <MathBlock latex={formula.latex} description={formula.description} label={formula.label} />)}
+      </section>
+      <section aria-labelledby="example-title">
+        <p class="eyebrow">Try a small case</p>
+        <h2 id="example-title">An example</h2>
+        <p>{data.example}</p>
+      </section>
+      <section aria-labelledby="matters-title">
+        <p class="eyebrow">The larger picture</p>
+        <h2 id="matters-title">Why it matters</h2>
+        <p>{data.significance}</p>
+      </section>
+      <section aria-labelledby="applications-title">
+        <p class="eyebrow">Beyond the page</p>
+        <h2 id="applications-title">Applications and influence</h2>
+        <div class="application-list">{data.applications.map((application) => <div><strong>{application.label}</strong><p>{application.text}</p></div>)}</div>
+      </section>
+      <section aria-labelledby="explore-title">
+        <p class="eyebrow">Keep going</p>
+        <h2 id="explore-title">Explore further</h2>
+        <ExploreLinks links={data.exploreFurther} />
+      </section>
+      <section aria-labelledby="sources-title">
+        <p class="eyebrow">Trace the idea</p>
+        <h2 id="sources-title">Sources</h2>
+        <SourceList sources={data.sources} />
+      </section>
+    </div>
+    <aside class="discovery-aside">
+      <div class="aside-card"><strong>Attribution</strong><p>{data.attribution.replace('-', ' ')} by Ramanujan.</p></div>
+      <div class="aside-card"><strong>Difficulty</strong><p>{data.difficulty}</p></div>
+    </aside>
+  </div>
+  <RelatedDiscoveries discoveries={related} />
+  <DiscoveryNavigation previous={previous} next={next} />
+</article>

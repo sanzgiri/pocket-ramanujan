@@ -1,0 +1,7 @@
+---
+interface Props { category: string; period: string; difficulty: string; attribution: string; }
+const { category, period, difficulty, attribution } = Astro.props;
+---
+<div class="discovery-meta" aria-label="Discovery details">
+  <span>{category}</span><span>{period}</span><span>{difficulty}</span><span>{attribution.replace('-', ' ')}</span>
+</div>

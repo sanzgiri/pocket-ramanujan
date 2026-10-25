@@ -1,0 +1,10 @@
+---
+interface Related { slug: string; title: string; summary: string; }
+interface Props { discoveries: Related[]; }
+const { discoveries } = Astro.props;
+---
+{discoveries.length > 0 && <section aria-labelledby="related-title">
+  <p class="eyebrow">Keep exploring</p>
+  <h2 id="related-title">Related discoveries</h2>
+  <div class="related-grid">{discoveries.map((discovery) => <a class="info-card" href={`/discoveries/${discovery.slug}/`}><h3>{discovery.title}</h3><p>{discovery.summary}</p></a>)}</div>
+</section>}

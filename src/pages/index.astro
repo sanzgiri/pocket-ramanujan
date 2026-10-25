@@ -1,36 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const startHere = [
+  { slug: 'partition-congruences', title: 'Partition Congruences', summary: 'Counting patterns hidden inside the ways integers can be assembled.' },
+  { slug: 'pi-series', title: 'A Rapid Series for π', summary: 'A formula that turns deep structure into fast computation.' },
+  { slug: 'highly-composite-numbers', title: 'Highly Composite Numbers', summary: 'The integers that set records for the number of divisors.' },
+];
 ---
 <BaseLayout>
   <div class="shell page-shell">
     <section class="hero" aria-labelledby="page-title">
       <p class="eyebrow">A field guide to beautiful mathematics</p>
       <h1 id="page-title">Ramanujan, one idea at a time.</h1>
-      <p class="hero-copy">
-        Explore important mathematical ideas associated with Srinivasa Ramanujan through clear explanations,
-        carefully rendered formulas, examples, and paths to go deeper.
-      </p>
+      <p class="hero-copy">Explore important mathematical ideas associated with Srinivasa Ramanujan through clear explanations, carefully rendered formulas, examples, and paths to go deeper.</p>
       <div class="hero-actions">
         <a class="button button-primary" href="/discoveries/">Start exploring</a>
         <a class="button button-secondary" href="/search/">Search the collection</a>
       </div>
     </section>
+    <section class="start-section" aria-labelledby="start-title">
+      <div><p class="eyebrow">Start here</p><h2 id="start-title">Three doors into the collection</h2></div>
+      <div class="discovery-list">{startHere.map((discovery, index) => <a class="discovery-card" href={`/discoveries/${discovery.slug}/`}><span class="discovery-number">0{index + 1}</span><span><strong>{discovery.title}</strong><span>{discovery.summary}</span></span><span aria-hidden="true">↗</span></a>)}</div>
+    </section>
     <section class="intro-grid" aria-label="About this collection">
-      <article class="info-card">
-        <p class="card-kicker">Read first</p>
-        <h2>Intuition before notation</h2>
-        <p>Every page starts with the idea in plain language, then builds toward the mathematics.</p>
-      </article>
-      <article class="info-card">
-        <p class="card-kicker">Go deeper</p>
-        <h2>Sources that travel with you</h2>
-        <p>Find videos, explainers, original papers, and scholarly references for every discovery.</p>
-      </article>
-      <article class="info-card">
-        <p class="card-kicker">A careful record</p>
-        <h2>Attribution matters</h2>
-        <p>Discoveries, conjectures, collaborations, and later developments are labeled distinctly.</p>
-      </article>
+      <article class="info-card"><p class="card-kicker">Read first</p><h2>Intuition before notation</h2><p>Every page starts with the idea in plain language, then builds toward the mathematics.</p></article>
+      <article class="info-card"><p class="card-kicker">Go deeper</p><h2>Sources that travel with you</h2><p>Find videos, explainers, original papers, and scholarly references for every discovery.</p></article>
+      <article class="info-card"><p class="card-kicker">A careful record</p><h2>Attribution matters</h2><p>Discoveries, conjectures, collaborations, and later developments are labeled distinctly.</p></article>
     </section>
   </div>
 </BaseLayout>
