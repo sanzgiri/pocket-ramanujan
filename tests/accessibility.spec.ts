@@ -4,7 +4,7 @@ test('discovery pages expose metadata, landmarks, and accessible math', async ({
   await page.goto('/discoveries/partition-congruences/');
   await expect(page.locator('main')).toBeVisible();
   await expect(page.locator('footer')).toBeVisible();
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', /pocket-ramanujan/);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', /ramanujan-beta/);
   await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /divisibility/);
   await expect(page.locator('.math-block')).toHaveAttribute('aria-label', /congruences/);
   await expect(page.locator('.math-block .katex-mathml')).toHaveCount(1);
