@@ -45,12 +45,68 @@ formulas:
 
 ## The idea
 
-A number becomes highly composite when it beats every smaller number at the divisor-count game. The records are not simply the biggest numbers; they are numbers whose prime factors are arranged efficiently.
+A positive integer has a finite list of divisors: numbers that divide it with no remainder. Some integers have more divisors than any smaller integer. Ramanujan called these record-holders highly composite numbers.
 
-## A small check
+The word “highly” does not mean that the number itself is large. It means that its divisor count is unusually large compared with everything that came before it.
 
-The number 12 has divisors 1, 2, 3, 4, 6, and 12, so d(12)=6. No positive integer below 12 has six or more divisors, making 12 a record-holder.
+## Counting divisors
+
+Write a number using its prime factorization. For example,
+
+$$
+12=2^2\cdot3^1.
+$$
+
+A divisor of 12 can use zero, one, or two copies of 2, and zero or one copy of 3. That gives $3\cdot2=6$ choices, so 12 has six positive divisors.
+
+In general, if
+
+$$
+n=p_1^{a_1}p_2^{a_2}\cdots p_r^{a_r},
+$$
+
+then
+
+$$
+d(n)=(a_1+1)(a_2+1)\cdots(a_r+1).
+$$
+
+Each exponent contributes one more choice because a divisor may use between zero and $a_i$ copies of the corresponding prime.
+
+## The first record-holders
+
+The beginning of the sequence is:
+
+| Number | Divisors | Divisor count |
+| ---: | --- | ---: |
+| 1 | $1$ | 1 |
+| 2 | $1,2$ | 2 |
+| 4 | $1,2,4$ | 3 |
+| 6 | $1,2,3,6$ | 4 |
+| 12 | $1,2,3,4,6,12$ | 6 |
+| 24 | sixteen divisors | 8 |
+| 36 | nine divisors | 9 |
+| 48 | ten divisors | 10 |
+| 60 | twelve divisors | 12 |
+
+Notice that 18 is not highly composite: it has six divisors, but 12 is smaller and already has six. A new record must beat every earlier count, not merely have many divisors.
+
+## Why the prime exponents matter
+
+To maximize the number of divisors for a given size, it is efficient to put larger exponents on smaller primes. Compare $2^2\cdot3=12$ with $2\cdot3^2=18$. Both use two primes, but 12 reaches a divisor count of 6 while staying smaller.
+
+This leads to a characteristic shape for highly composite numbers: their prime exponents usually decrease from left to right. A typical factorization looks like $2^a3^b5^c\cdots$ with $a\ge b\ge c\ge\cdots$.
+
+That observation turns a list of examples into a structural theorem about how factors are arranged.
+
+## What Ramanujan contributed
+
+Ramanujan studied highly composite numbers systematically rather than treating them as curiosities. His work analyzed the relationship between the size of a number, its prime factors, and the number of divisors it can support.
+
+The research is a good example of his style: begin with a concrete numerical pattern, then search for the general arithmetic mechanism behind the pattern. Later work refined and extended these ideas in multiplicative number theory.
 
 ## Why it matters
 
-The subject turns a simple question—how many factors does a number have?—into an optimization problem involving the structure of primes.
+Highly composite numbers are mainly a theoretical subject. Their importance lies in the questions they teach us to ask: What makes a number extremal? How do local prime factors combine into a global record? What can be proved about the shape of an optimal factorization?
+
+There is also a practical connection to factor-rich structures. Divisors matter in algorithms, combinatorics, and problems involving periodic subdivision, although the definition of a highly composite number itself is not a general-purpose optimization recipe.
