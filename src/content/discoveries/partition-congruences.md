@@ -43,12 +43,108 @@ formulas:
 
 ## The idea
 
-The function p(n) grows quickly, but it is not random. The formulas above say that three infinite families of partition counts are always divisible by a fixed small number.
+The partition function looks innocent: count the ways to add positive whole numbers to make $n$. But its values quickly become large and irregular. Ramanujan discovered that, beneath that irregularity, there are exact arithmetic patterns.
 
-## A small check
+For every nonnegative integer $n$, three families of values are divisible by a matching modulus:
 
-For n=0, the first congruence says p(4) is divisible by 5. Since p(4)=5, the first case works exactly.
+- $p(5n+4)$ is divisible by $5$.
+- $p(7n+5)$ is divisible by $7$.
+- $p(11n+6)$ is divisible by $11$.
+
+These are not approximations, statistical tendencies, or patterns that stop after a large number. Each statement describes an infinite sequence of exact equalities modulo a number.
+
+## What is a partition?
+
+A partition of a positive integer is a way of writing it as a sum of positive integers where order does not matter. The order in $3+1$ is not different from $1+3$, so they represent the same partition.
+
+For example, the partitions of $4$ are:
+
+1. $4$
+2. $3+1$
+3. $2+2$
+4. $2+1+1$
+5. $1+1+1+1$
+
+Therefore $p(4)=5$. By convention, $p(0)=1$: there is one way to make zero, namely using no parts at all.
+
+The first few values are:
+
+| $n$ | $p(n)$ | What this means |
+| ---: | ---: | --- |
+| 0 | 1 | the empty sum |
+| 1 | 1 | $1$ |
+| 2 | 2 | $2$, $1+1$ |
+| 3 | 3 | $3$, $2+1$, $1+1+1$ |
+| 4 | 5 | the five partitions listed above |
+| 5 | 7 | seven unordered sums |
+| 6 | 11 | eleven unordered sums |
+| 7 | 15 | fifteen unordered sums |
+| 8 | 22 | twenty-two unordered sums |
+| 9 | 30 | thirty unordered sums |
+| 10 | 42 | forty-two unordered sums |
+
+Already, the sequence grows in a way that is difficult to guess from the definition alone.
+
+## Reading the first congruence
+
+Take $p(5n+4)\equiv0\pmod{5}$. The expression $5n+4$ selects the numbers $4,9,14,19,24,\ldots$.
+
+For $n=0$, we get $p(4)=5$, which is divisible by $5$.
+
+For $n=1$, we get $p(9)=30$, which is divisible by $5$.
+
+For $n=2$, we get $p(14)=135$, which is divisible by $5$.
+
+The theorem continues forever. It does not say that every partition number is divisible by $5$; it says that numbers in one particular arithmetic progression always produce a multiple of $5$.
+
+The other two congruences work the same way. The progression $7n+5$ begins $5,12,19,26,\ldots$, while $11n+6$ begins $6,17,28,39,\ldots$.
+
+## Why use congruences?
+
+The notation $a\equiv b\pmod m$ means that $a$ and $b$ have the same remainder after division by $m$. Saying $p(5n+4)\equiv0\pmod5$ is a compact way of saying:
+
+> Divide $p(5n+4)$ by $5$; the remainder is always zero.
+
+Congruences let us ignore the enormous size of a number and focus on a small piece of its arithmetic behavior. That makes hidden regularity visible. In this case, the partition numbers are complicated over the integers but remarkably organized modulo $5$, $7$, and $11$.
+
+## A generating-function viewpoint
+
+There is a compact way to package every partition number at once:
+
+$$
+\sum_{n=0}^{\infty}p(n)q^n=\prod_{k=1}^{\infty}\frac{1}{1-q^k}.
+$$
+
+Why does this product count partitions? For each possible part size $k$, the factor
+
+$$
+1+q^k+q^{2k}+q^{3k}+\cdots=\frac{1}{1-q^k}
+$$
+
+records whether we use zero copies of $k$, one copy, two copies, and so on. When we multiply all the factors, choosing a term from each factor specifies exactly how many copies of each part size we used. The exponent of $q$ records the total sum.
+
+This viewpoint turns a counting problem into a problem about infinite products and power series. It is one reason partition theory became connected to q-series and modular forms.
+
+## What did Ramanujan actually prove?
+
+Ramanujan communicated these congruences in his work on partitions and gave proofs using the tools available to him, including generating functions and identities related to elliptic and modular functions. The original notebook style is extremely compressed, so modern readers usually encounter the results through later edited and expanded treatments.
+
+A complete proof is not short enough to fit naturally in an introductory page. The important proof idea is that the generating function has much more symmetry than its counting definition suggests. When that symmetry is examined modulo small primes, the coefficients in these arithmetic progressions are forced to vanish modulo the corresponding prime.
+
+Later mathematics made this structure more systematic. Modular forms provide a framework in which the generating function can be transformed and compared with other functions whose coefficients have controlled arithmetic behavior.
 
 ## Why it matters
 
-The surprise is not just the divisibility. It is that a problem about arranging whole numbers is connected to the analytic machinery of modular forms.
+The striking part is the bridge between three levels of mathematics:
+
+1. **Combinatorics:** count unordered sums.
+2. **Algebra and arithmetic:** study the counts modulo a prime.
+3. **Analysis:** use infinite products, q-series, and modular forms to explain the pattern.
+
+A reader can discover the first few values of $p(n)$ with pencil and paper, but the reason the congruences continue indefinitely belongs to a much deeper theory. Ramanujan saw that connection unusually early and expressed it with remarkable precision.
+
+## Applications and influence
+
+The congruences are primarily a theoretical result rather than an engineering formula used directly in a device. Their influence is mathematical: they helped establish partition theory as a meeting place for combinatorics, number theory, q-series, and modular forms.
+
+They also provide a model for a recurring strategy in mathematics: when a sequence is too complicated to understand exactly, study it modulo carefully chosen numbers. A difficult global object may reveal clean local patterns.

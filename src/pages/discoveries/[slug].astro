@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import DiscoveryPage from '../../components/DiscoveryPage.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -27,7 +27,8 @@ interface Props {
   related: { slug: string; title: string; summary: string }[];
 }
 const { entry, previous, next, related } = Astro.props;
+const { Content } = await render(entry);
 ---
 <BaseLayout title={`${entry.data.title} — Pocket Ramanujan`} description={entry.data.summary}>
-  <DiscoveryPage entry={entry} previous={previous} next={next} related={related} />
+  <DiscoveryPage entry={entry} content={Content} previous={previous} next={next} related={related} />
 </BaseLayout>

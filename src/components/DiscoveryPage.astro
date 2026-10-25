@@ -9,11 +9,12 @@ import SourceList from './SourceList.astro';
 
 interface Props {
   entry: CollectionEntry<'discoveries'>;
+  content: any;
   previous?: { slug: string; title: string };
   next?: { slug: string; title: string };
   related: { slug: string; title: string; summary: string }[];
 }
-const { entry, previous, next, related } = Astro.props;
+const { entry, content: Content, previous, next, related } = Astro.props;
 const { data } = entry;
 ---
 <article class="discovery-shell shell">
@@ -51,6 +52,11 @@ const { data } = entry;
         <p class="eyebrow">Beyond the page</p>
         <h2 id="applications-title">Applications and influence</h2>
         <div class="application-list">{data.applications.map((application) => <div><strong>{application.label}</strong><p>{application.text}</p></div>)}</div>
+      </section>
+      <section class="lesson" aria-labelledby="lesson-title">
+        <p class="eyebrow">A fuller explanation</p>
+        <h2 id="lesson-title">Work through the idea</h2>
+        <Content />
       </section>
       <section aria-labelledby="explore-title">
         <p class="eyebrow">Keep going</p>
