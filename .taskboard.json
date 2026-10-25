@@ -1,0 +1,61 @@
+{
+  "plan": {
+    "goal": "Turn Pocket Ramanujan into a deeply instructional, source-led collection of accessible Ramanujan mathematics.",
+    "success_criteria": [
+      "At least 10 detailed discovery lessons are published.",
+      "Every lesson follows the standard lesson template and has verified sources.",
+      "Every formula has accessible rendered math and a plain-language interpretation.",
+      "Applications are distinguished from later theoretical influence.",
+      "Search visibly uses Pagefind and topic navigation remains crawlable.",
+      "The production verification suite remains green."
+    ],
+    "deliverable": "A documented editorial, content, navigation, accessibility, and production roadmap in docs/NEXT-STEPS.md.",
+    "subgoals": [
+      {"id": "S1", "description": "Define and enforce a detailed lesson editorial standard.", "success_test": "Checklist and content schema support complete instructional lessons."},
+      {"id": "S2", "description": "Expand the collection from three pilots to at least ten lessons.", "success_test": "Ten source-backed lessons build and render without math errors."},
+      {"id": "S3", "description": "Make navigation support learning progression and prerequisites.", "success_test": "Guided, topic, difficulty, related, and prerequisite navigation are crawlable."},
+      {"id": "S4", "description": "Make search and accessibility production-quality.", "success_test": "Visible Pagefind search and keyboard/screen-reader checks pass."},
+      {"id": "S5", "description": "Harden editorial contribution and deployment workflows.", "success_test": "Correction, review, deployment, sitemap, and indexing workflows are documented."}
+    ],
+    "tasks": [
+      {"id": "T1", "description": "Create the lesson template and editorial review checklist.", "required_agent": "planning", "expected_output": "A versioned template/checklist used by every future lesson.", "estimated_effort": "S", "prerequisites": []},
+      {"id": "T2", "description": "Review and deepen the three pilot lessons against the template.", "required_agent": "critic", "expected_output": "Reviewed pilot content with factual, attribution, and pedagogy corrections.", "estimated_effort": "M", "prerequisites": ["T1"]},
+      {"id": "T3", "description": "Research and source the next seven lessons.", "required_agent": "research", "expected_output": "Source packets and outlines for circle method, Rogers–Ramanujan identities, tau, continued fractions, modular equations, mock theta functions, and gamma approximations.", "estimated_effort": "L", "prerequisites": ["T1"]},
+      {"id": "T4", "description": "Write and publish the next seven detailed lessons.", "required_agent": "execution", "expected_output": "Seven validated Markdown lessons with examples, proof sketches, applications/influence, and sources.", "estimated_effort": "L", "prerequisites": ["T2", "T3"]},
+      {"id": "T5", "description": "Add prerequisites, topic landing pages, and expanded guided navigation.", "required_agent": "execution", "expected_output": "Crawlable learning paths and related-topic navigation.", "estimated_effort": "M", "prerequisites": ["T4"]},
+      {"id": "T6", "description": "Wire visible search directly to Pagefind and improve filters.", "required_agent": "execution", "expected_output": "Pagefind-backed search with topic, difficulty, and empty-state behavior.", "estimated_effort": "M", "prerequisites": ["T4"]},
+      {"id": "T7", "description": "Run accessibility, link, math-rendering, and production quality review.", "required_agent": "critic", "expected_output": "Review report and fixes for critical/important findings.", "estimated_effort": "M", "prerequisites": ["T5", "T6"]},
+      {"id": "T8", "description": "Connect GitHub/Vercel automation and submit the sitemap for indexing.", "required_agent": "execution", "expected_output": "Automatic deploy workflow, verified canonical domain, and Search Console submission instructions completed.", "estimated_effort": "S", "prerequisites": ["T7"]}
+    ],
+    "dependencies": [
+      {"from": "T1", "to": "T2"},
+      {"from": "T1", "to": "T3"},
+      {"from": "T2", "to": "T4"},
+      {"from": "T3", "to": "T4"},
+      {"from": "T4", "to": "T5"},
+      {"from": "T4", "to": "T6"},
+      {"from": "T5", "to": "T7"},
+      {"from": "T6", "to": "T7"},
+      {"from": "T7", "to": "T8"}
+    ],
+    "critical_path": ["T1", "T3", "T4", "T5", "T7", "T8"],
+    "parallel_groups": [["T2", "T3"], ["T5", "T6"]],
+    "milestones": [
+      {"name": "Editorial standard", "after_task": "T1", "verification": "Template and checklist committed."},
+      {"name": "Ten-lesson library", "after_task": "T4", "verification": "Ten lessons build, render, and pass content validation."},
+      {"name": "Learning navigation", "after_task": "T6", "verification": "Guided/category navigation and Pagefind search pass browser tests."},
+      {"name": "Production-ready release", "after_task": "T8", "verification": "All checks pass, deployment is automatic, and sitemap is submitted."}
+    ],
+    "risks": [
+      {"task": "T3", "risk": "Some Ramanujan attributions or modern applications are easy to overstate.", "mitigation": "Use primary/annotated sources and label later proofs or influence explicitly.", "likelihood": "medium", "impact": "high"},
+      {"task": "T4", "risk": "Writing seven detailed lessons becomes a large editorial effort.", "mitigation": "Ship in batches of three and require the template before adding more topics.", "likelihood": "high", "impact": "medium"},
+      {"task": "T6", "risk": "Search UI diverges from the generated Pagefind index.", "mitigation": "Add browser tests against the production-built Pagefind bundle and retain crawlable fallback links.", "likelihood": "medium", "impact": "medium"},
+      {"task": "T8", "risk": "Vercel deployment protection or domain changes create an inaccessible canonical URL.", "mitigation": "Verify public HTTP 200 responses, canonical tags, robots, and sitemap after every production deployment.", "likelihood": "medium", "impact": "high"}
+    ],
+    "open_questions": [
+      "Whether future lessons should target one broad audience with layers or separate beginner/intermediate tracks.",
+      "Whether to add illustrations or interactive visualizations after the ten-lesson milestone.",
+      "Whether a custom domain is worth purchasing before SEO work begins."
+    ]
+  }
+}
