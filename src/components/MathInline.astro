@@ -1,0 +1,9 @@
+---
+interface Props {
+  latex: string;
+  description?: string;
+}
+
+const { latex, description = latex } = Astro.props;
+---
+<span class="math-inline" aria-label={description} data-latex={latex}><code>{latex}</code></span>

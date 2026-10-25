@@ -1,0 +1,18 @@
+---
+import type { Source } from '../content/schema';
+
+interface Props {
+  sources: Source[];
+}
+
+const { sources } = Astro.props;
+---
+<ul class="source-list">
+  {sources.map((source) => (
+    <li>
+      <span class="source-type">{source.type.replace('-', ' ')}</span>
+      <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>
+      <span>— {source.author}{source.locator ? `, ${source.locator}` : ''}</span>
+    </li>
+  ))}
+</ul>

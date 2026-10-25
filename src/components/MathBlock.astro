@@ -1,0 +1,16 @@
+---
+interface Props {
+  latex: string;
+  description: string;
+  label?: string;
+}
+
+const { latex, description, label = 'Mathematical formula' } = Astro.props;
+---
+<figure class="math-block" aria-label={label}>
+  <div class="math-block-inner" data-latex={latex}>
+    <span class="sr-only">{description}</span>
+    <code>{latex}</code>
+  </div>
+  <figcaption>{description}</figcaption>
+</figure>

@@ -1,0 +1,18 @@
+---
+import type { ExploreLink } from '../content/schema';
+
+interface Props {
+  links: ExploreLink[];
+}
+
+const { links } = Astro.props;
+---
+<div class="explore-links">
+  {links.map((link) => (
+    <a class="explore-link" href={link.url} target="_blank" rel="noreferrer">
+      <span class="explore-link-type">{link.type.replace('-', ' ')}</span>
+      <strong>{link.title}</strong>
+      <span>{link.description}</span>
+    </a>
+  ))}
+</div>

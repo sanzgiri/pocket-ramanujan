@@ -42,6 +42,21 @@ h2 { margin: 0 0 .75rem; font-size: 1.35rem; }
 .intro-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: clamp(4rem, 10vw, 8rem); }
 .info-card { padding: 1.5rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--card); }
 .info-card p:last-child { margin-bottom: 0; color: var(--muted); }
+.math-block { margin: 1.5rem 0; padding: 1.25rem; overflow-x: auto; border: 1px solid var(--line); border-radius: .85rem; background: #fbfcfa; }
+.math-block-inner { min-width: max-content; padding: .5rem; color: var(--ink); text-align: center; }
+.math-block-inner code, .math-inline code { font-family: "STIX Two Math", "Cambria Math", Georgia, serif; white-space: pre-wrap; }
+.math-block figcaption { margin-top: .75rem; color: var(--muted); font-size: .9rem; text-align: center; }
+.math-inline { white-space: nowrap; }
+.source-list { padding-left: 1.25rem; color: var(--muted); }
+.source-list li { margin-block: .45rem; }
+.source-list a { color: var(--ink); font-weight: 650; }
+.source-type, .explore-link-type { color: var(--accent); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.source-type { margin-right: .35rem; }
+.explore-links { display: grid; gap: .75rem; }
+.explore-link { display: grid; gap: .2rem; padding: 1rem; border: 1px solid var(--line); border-radius: .75rem; background: var(--card); text-decoration: none; }
+.explore-link:hover { border-color: var(--accent); }
+.explore-link span:last-child { color: var(--muted); font-size: .92rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
 .footer-inner { min-height: 5rem; }
 @media (max-width: 700px) {
