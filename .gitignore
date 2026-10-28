@@ -7,5 +7,6 @@ dist/
 !.env.example
 .superpowers/
 .worktrees/
+test-results/
 .DS_Store
 .vercel
