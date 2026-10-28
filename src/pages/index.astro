@@ -1,10 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-const startHere = [
-  { slug: 'partition-congruences', title: 'Partition Congruences', summary: 'Counting patterns hidden inside the ways integers can be assembled.' },
-  { slug: 'pi-series', title: 'A Rapid Series for π', summary: 'A formula that turns deep structure into fast computation.' },
-  { slug: 'highly-composite-numbers', title: 'Highly Composite Numbers', summary: 'The integers that set records for the number of divisors.' },
-];
+import { orderDiscoveries } from '../content/discoveries';
+const startHere = orderDiscoveries(await getCollection('discoveries')).slice(0, 3);
 ---
 <BaseLayout>
   <div class="shell page-shell">
@@ -19,7 +17,7 @@ const startHere = [
     </section>
     <section class="start-section" aria-labelledby="start-title">
       <div><p class="eyebrow">Start here</p><h2 id="start-title">Three doors into the collection</h2></div>
-      <div class="discovery-list">{startHere.map((discovery, index) => <a class="discovery-card" href={`/discoveries/${discovery.slug}/`}><span class="discovery-number">0{index + 1}</span><span><strong>{discovery.title}</strong><span>{discovery.summary}</span></span><span aria-hidden="true">↗</span></a>)}</div>
+      <div class="discovery-list">{startHere.map((discovery, index) => <a class="discovery-card" href={`/discoveries/${discovery.data.slug}/`}><span class="discovery-number">0{index + 1}</span><span><strong>{discovery.data.title}</strong><span>{discovery.data.summary}</span></span><span aria-hidden="true">↗</span></a>)}</div>
     </section>
     <section class="intro-grid" aria-label="About this collection">
       <article class="info-card"><p class="card-kicker">Read first</p><h2>Intuition before notation</h2><p>Every page starts with the idea in plain language, then builds toward the mathematics.</p></article>

@@ -52,28 +52,28 @@
 - The home page keeps its short “Start Here” introduction and first three cards but sources those entries from the canonical manifest/content collection instead of duplicated literals.
 - The editorial guide defines lesson sections, source tiers, attribution terms, formula/accessibility rules, and a batch review checklist.
 
-- [ ] **Step 1: Write failing tests for the canonical manifest and ordering helper**
+- [x] **Step 1: Write failing tests for the canonical manifest and ordering helper**
 
 Assert the manifest equals the exact 13-slug list above, has no duplicates, and excludes `1729`. Test `orderDiscoveries(entries)` with synthetic entries supplied out of order and assert that it returns only those entries in manifest order while rejecting a slug absent from the manifest. The helper must tolerate planned-but-not-yet-authored slugs during the four content batches.
 
-- [ ] **Step 2: Run the focused tests to verify they fail because the manifest/helper is missing**
+- [x] **Step 2: Run the focused tests to verify they fail because the manifest/helper is missing**
 
 Run: `npm test -- tests/discovery-order.test.ts`
 Expected: FAIL because `discoveryOrder` and `orderDiscoveries` are not yet implemented.
 
-- [ ] **Step 3: Add editorial authoring and review guidelines**
+- [x] **Step 3: Add editorial authoring and review guidelines**
 
 Document the lesson sequence: motivating question, prerequisites, intuition, definitions, examples, main result, worked calculation, significance, proof strategy/scope, historical attribution, applications versus influence, further resources, and sources. Require at least two examples or a stated reason they are unsuitable. Require sourced conditions, accurate descriptions for displayed formulas, and the 1729 exclusion.
 
-- [ ] **Step 4: Expand the manifest and make navigation consume it**
+- [x] **Step 4: Expand the manifest and make navigation consume it**
 
 Export `discoveryOrder` as a readonly tuple. Sort route entries and browse records by its index. Build the home page's first three cards from the manifest and the content entries. Fail the static build with a descriptive error if the manifest references a missing discovery or content exists outside the manifest.
 
-- [ ] **Step 5: Update pilot assertions and verify manifest behavior**
+- [x] **Step 5: Update pilot assertions and verify manifest behavior**
 
 Keep pilot-specific assertions for the existing three slugs and add exact manifest sequence, uniqueness, unknown-slug rejection, and 1729 exclusion assertions. Defer the test equating all content files with the 13 manifest entries to Task 6 so intermediate batches can build.
 
-- [ ] **Step 6: Run checks and commit the editorial/navigation foundation**
+- [x] **Step 6: Run checks and commit the editorial/navigation foundation**
 
 Run: `npm test -- tests/discovery-order.test.ts tests/pilot-content.test.ts && npm run check && npm run build`
 Expected: PASS for current corpus, helper ordering, schema, and pilot tests; build succeeds with planned slugs not yet authored.

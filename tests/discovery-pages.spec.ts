@@ -12,6 +12,15 @@ test('renders a discovery page with the full reading path', async ({ page }) => 
   await expect(page.getByRole('link', { name: /next/i })).toBeVisible();
 });
 
+test('home start-here links follow the first three entries in the canonical path', async ({ page }) => {
+  await page.goto('/');
+  const links = page.locator('.start-section .discovery-card');
+  await expect(links).toHaveCount(3);
+  await expect(links.nth(0)).toHaveAttribute('href', '/discoveries/partition-congruences/');
+  await expect(links.nth(1)).toHaveAttribute('href', '/discoveries/pi-series/');
+  await expect(links.nth(2)).toHaveAttribute('href', '/discoveries/highly-composite-numbers/');
+});
+
 test('returns a not found response for an unknown discovery', async ({ request }) => {
   const response = await request.get('/discoveries/not-a-discovery/');
   expect(response.status()).toBe(404);
