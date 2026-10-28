@@ -275,10 +275,10 @@ Review one lesson from each batch plus all content source notes; test narrow-scr
 
 Commit: `test: accept complete 13-topic collection`. Run `vercel --prod`; verify public HTTP 200 for Home, Browse, Search, one page per batch, `robots.txt`, and `sitemap.xml`; verify canonical URLs and math content.
 
-- [ ] **Step 6: Push all commits to GitHub**
+- [x] **Step 6: Push all commits to GitHub**
 
 Run: `git push origin main`, then verify `git ls-remote --heads origin main` matches `git rev-parse HEAD` and `git status --short` is clean.
 
-- [ ] **Step 7: Update roadmap and report delivery**
+- [x] **Step 7: Update roadmap and report delivery**
 
 Record final topic list and live URL in `docs/NEXT-STEPS.md`; commit and push the update. Report all 13 page URLs or a topic index, verification results, and any remaining manual review needs.
