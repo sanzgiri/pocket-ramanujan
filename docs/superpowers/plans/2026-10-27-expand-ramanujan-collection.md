@@ -217,24 +217,24 @@ Commit: `content: add gamma approximation and Master Theorem lessons`.
 **Interfaces:**
 - Both lessons satisfy the authoring guide, Zod schema, canonical manifest, and attribution/source requirements.
 
-- [ ] **Step 1: Write failing batch acceptance tests**
+- [x] **Step 1: Write failing batch acceptance tests**
 
-Assert both lessons exist with formulas, source records, examples, and a section distinguishing ordinary convergence from any regularized assignment for the divergent-series topic.
+Assert both lessons exist with formulas, source records, examples, and a section distinguishing ordinary convergence from any regularized assignment for the divergent-series topic, with substantive plain-language equation walkthroughs.
 
-- [ ] **Step 2: Run tests and verify missing-content failures**
+- [x] **Step 2: Run tests and verify missing-content failures**
 
 Run: `npm test -- tests/content-batch-4.test.ts`
 Expected: FAIL because the batch pages do not yet exist.
 
-- [ ] **Step 3: Research and write Ramanujan summation**
+- [x] **Step 3: Research and write Ramanujan summation**
 
 Explain a divergent series example, distinguish partial sums and ordinary convergence from regularized values, show exactly which summation method is being discussed, state assumptions/limitations, and avoid implying a divergent series literally converges to its assigned regularized value.
 
-- [ ] **Step 4: Research and write further π series**
+- [x] **Step 4: Research and write further π series**
 
 Choose one mathematically distinct, sourced Ramanujan series not duplicating the existing π page. Define variables, state convergence, compare convergence numerically with a worked approximation, and describe its historical and computational relevance accurately.
 
-- [ ] **Step 5: Verify and commit batch 4**
+- [x] **Step 5: Verify and commit batch 4**
 
 Run: `npm test -- tests/content-batch-4.test.ts && npm run check && npm run build && npm run check:links && npx playwright test tests/discovery-pages.spec.ts`
 Expected: both routes build and the divergent-series caution is visible.

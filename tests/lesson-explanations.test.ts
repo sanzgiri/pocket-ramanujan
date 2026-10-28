@@ -15,6 +15,8 @@ const slugs = [
   'mock-theta-functions',
   'gamma-function-approximations',
   'ramanujan-master-theorem',
+  'ramanujan-summation',
+  'further-pi-series',
 ];
 
 function plainLanguageWalkthrough(body: string) {

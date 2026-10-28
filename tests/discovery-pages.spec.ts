@@ -42,6 +42,20 @@ test('renders a batch-two modular equation with MathML and neighbor links', asyn
   await expect(page.getByRole('link', { name: /next/i })).toHaveAttribute('href', '/discoveries/mock-theta-functions/');
 });
 
+test('batch-three and batch-four formulas render with descriptions and MathML', async ({ page }) => {
+  for (const slug of [
+    'gamma-function-approximations',
+    'ramanujan-master-theorem',
+    'ramanujan-summation',
+    'further-pi-series',
+  ]) {
+    await page.goto(`/discoveries/${slug}/`);
+    const formula = page.locator('.math-block').first();
+    await expect(formula).toHaveAttribute('aria-label', /.+/);
+    await expect(formula.locator('.katex-mathml math')).toHaveCount(1);
+  }
+});
+
 test('all current lessons render the plain-language equation walkthrough', async ({ page }) => {
   const slugs = [
     'partition-congruences',
@@ -55,12 +69,20 @@ test('all current lessons render the plain-language equation walkthrough', async
     'mock-theta-functions',
     'gamma-function-approximations',
     'ramanujan-master-theorem',
+    'ramanujan-summation',
+    'further-pi-series',
   ];
 
   for (const slug of slugs) {
     await page.goto(`/discoveries/${slug}/`);
     await expect(page.getByRole('heading', { name: 'The main equation in plain language' })).toBeVisible();
   }
+});
+
+test('makes the Ramanujan-summation caution visible to readers', async ({ page }) => {
+  await page.goto('/discoveries/ramanujan-summation/');
+  await expect(page.getByRole('heading', { name: 'Ordinary convergence versus Ramanujan summation' })).toBeVisible();
+  await expect(page.getByText(/regularized value, not an ordinary sum/i)).toBeVisible();
 });
 
 test('returns a not found response for an unknown discovery', async ({ request }) => {
