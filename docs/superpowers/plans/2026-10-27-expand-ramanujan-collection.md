@@ -93,33 +93,33 @@ Commit: `feat: define lesson standard and discovery order`.
 - Each body follows `docs/content-authoring-guidelines.md`, contains enough worked examples/calculations to teach the topic, and records source-backed attribution and further reading.
 - Slugs and titles match `discoveryOrder` exactly.
 
-- [ ] **Step 1: Add failing batch acceptance tests**
+- [x] **Step 1: Add failing batch acceptance tests**
 
 Assert the three batch slugs exist; each has sources, attribution, formulas with descriptions, the required instructional headings, and at least two example/calculation sections (or an explicit editorial exception).
 
-- [ ] **Step 2: Run tests and verify they fail because batch pages are missing**
+- [x] **Step 2: Run tests and verify they fail because batch pages are missing**
 
 Run: `npm test -- tests/content-batch-1.test.ts`
 Expected: FAIL on missing lesson files.
 
-- [ ] **Step 3: Research the circle method and write its lesson**
+- [x] **Step 3: Research the circle method and write its lesson**
 
 Use scholarly sources to explain the partition asymptotic, what the “circle” refers to at an intuitive level, a small partition-count example, the role of roots of unity/major and minor arcs at an appropriate depth, scope of the Hardy–Ramanujan result, and how Rademacher later obtained a convergent series. Distinguish their contributions.
 
-- [ ] **Step 4: Research the Rogers–Ramanujan identities and write their lesson**
+- [x] **Step 4: Research the Rogers–Ramanujan identities and write their lesson**
 
 Explain q-series/product notation, give initial coefficient checks or a partition interpretation, state convergence assumptions, and discuss the historical work of Rogers, Ramanujan, and later proofs without erasing prior discovery or independent rediscovery.
 
-- [ ] **Step 5: Research Ramanujan's tau function and write its lesson**
+- [x] **Step 5: Research Ramanujan's tau function and write its lesson**
 
 Define the discriminant generating function and tau coefficients, show a concrete coefficient/example, distinguish Ramanujan's conjectures from later proofs, and explain the modular-form context and influence.
 
-- [ ] **Step 6: Run batch tests, build, link validation, and representative browser checks**
+- [x] **Step 6: Run batch tests, build, link validation, and representative browser checks**
 
 Run: `npm test -- tests/content-batch-1.test.ts && npm run check && npm run build && npm run check:links && npx playwright test tests/discovery-pages.spec.ts`
 Expected: all three routes generated; KaTeX succeeds; math descriptions and lesson headings are present.
 
-- [ ] **Step 7: Commit batch 1**
+- [x] **Step 7: Commit batch 1**
 
 Commit: `content: add circle method, Rogers-Ramanujan, and tau lessons`.
 

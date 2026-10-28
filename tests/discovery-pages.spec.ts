@@ -21,6 +21,17 @@ test('home start-here links follow the first three entries in the canonical path
   await expect(links.nth(2)).toHaveAttribute('href', '/discoveries/highly-composite-numbers/');
 });
 
+test('renders a batch-one lesson with described KaTeX MathML and ordered navigation', async ({ page }) => {
+  await page.goto('/discoveries/hardy-ramanujan-circle-method/');
+  await expect(page.getByRole('heading', { name: 'Hardy–Ramanujan Circle Method' })).toBeVisible();
+  const formula = page.locator('.math-block').first();
+  await expect(formula).toHaveAttribute('aria-label', 'Hardy–Ramanujan partition asymptotic');
+  await expect(formula.locator('figcaption')).toContainText('ratio');
+  await expect(formula.locator('.katex-mathml math')).toHaveCount(1);
+  await expect(page.getByRole('link', { name: /previous/i })).toHaveAttribute('href', '/discoveries/highly-composite-numbers/');
+  await expect(page.getByRole('link', { name: /next/i })).toHaveAttribute('href', '/discoveries/rogers-ramanujan-identities/');
+});
+
 test('returns a not found response for an unknown discovery', async ({ request }) => {
   const response = await request.get('/discoveries/not-a-discovery/');
   expect(response.status()).toBe(404);
