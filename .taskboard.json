@@ -3,7 +3,7 @@
     "goal": "Expand Pocket Ramanujan to 13 detailed, sourced topics and deploy the complete collection.",
     "success_criteria": [
       "All 13 planned discovery pages exist and are statically generated.",
-      "Each lesson meets the detailed teaching, examples, source, formula, and attribution standard.",
+      "Each lesson meets the detailed teaching, examples, source, formula, attribution, and substantive plain-language equation-walkthrough standard.",
       "Discovery order and previous/next navigation follow one stable manifest.",
       "All unit, content, browser, link, and build checks pass.",
       "The complete site is deployed at the current canonical Vercel URL and all changes are pushed to GitHub."

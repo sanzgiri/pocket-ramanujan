@@ -73,6 +73,10 @@ $$
 
 Each exponent contributes one more choice because a divisor may use between zero and $a_i$ copies of the corresponding prime.
 
+## The main equation in plain language
+
+If the prime factorization is n=p₁^a₁p₂^a₂⋯pᵣ^aᵣ, then a divisor chooses an exponent independently for each prime. For p₁ it can choose 0 through a₁, giving a₁+1 options; for p₂ it has a₂+1 options; multiply all those counts to get d(n). For 12=2²·3, there are 3 choices for the power of 2 and 2 choices for the power of 3, hence d(12)=3·2=6. For 60=2²·3·5, the choices are 3·2·2=12. The formula counts divisors, but being highly composite asks a second question: does that count beat every smaller integer's count? The factorization alone gives the divisor count; checking record status requires comparing with earlier numbers.
+
 ## The first record-holders
 
 The beginning of the sequence is:

@@ -62,6 +62,10 @@ Ramanujan's work contains many such relations, written in his notation for ellip
 
 For orientation, let λ(τ) denote the classical modular lambda function, which is the square of an elliptic modulus. We restrict the examples to positive imaginary τ so λ is real and lies between zero and one; square roots below mean the positive real roots. The degree-two relation displayed above is a classical duplication formula illustrating what a modular equation does.
 
+## The main equation in plain language
+
+Here τ is the parameter describing the shape of the period lattice, and λ(τ) is a number between 0 and 1 measuring its elliptic modulus squared. The symbol i is the imaginary unit, so 2i means twice the parameter i. The equation compares the value at τ with the value after doubling τ. To use it, subtract the old value from 1, take the positive square root, form “one minus that root” over “one plus that root,” then square the fraction. For τ=i, the old value is 1/2; the calculation gives (3−2√2)²≈0.02944 at 2i. Applying the same steps again gives about 0.0000558 at 4i. This degree-two relation is a classical example, not one of Ramanujan's original discoveries. Ramanujan's own contribution was his much larger collection of modular equations and their use in evaluating special values and π-series.
+
 ## Example 1: start at the square lattice
 
 At τ=i the associated lattice is square-symmetric, and λ(i)=1/2. Substitute this into the degree-two relation. The square root of 1−1/2 is 1/√2, so λ(2i)=((1−1/√2)/(1+1/√2))². Multiplying numerator and denominator by √2 gives ((√2−1)/(√2+1))². Since (√2−1)/(√2+1)=3−2√2, the result is (3−2√2)², approximately 0.0294373.

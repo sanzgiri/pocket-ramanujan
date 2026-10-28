@@ -17,6 +17,7 @@
 - The 1729 anecdote remains excluded.
 - Use primary papers, collected papers, annotated notebook editions, and scholarly expositions as core sources where available.
 - Every lesson should include at least two worked examples or explain why the subject calls for a different kind of demonstration.
+- Every lesson must include a substantive `The main equation in plain language` section translating the key formula, defining its variables and conditions, and connecting it to a worked example. Explain separate formulas separately when one paraphrase would be insufficient; do not conceal hard steps behind vague proof disclaimers.
 - Every displayed formula must have an accurate accessible description and be interpreted in prose.
 - Clearly distinguish original results, conjectures, collaborations, later proofs, and later influence.
 - Separate direct application from influence on a later field; do not claim modern practical use without a source.
@@ -30,6 +31,13 @@
 - Divergent-series regularization may be mistaken for ordinary convergence; Task 5 must test that the lesson explicitly distinguishes the two.
 - The added content may exist but be unreachable or ordered alphabetically; Task 1 tests all 13 slugs and asserts manifest-based previous/next order.
 - KaTeX can silently expose malformed or inaccessible formulas; every batch runs production build and representative browser checks for MathML and formula descriptions.
+- Dense equations can discourage readers even when they render correctly; test for a substantive plain-language walkthrough, symbol definitions, step-by-step examples, and explicit proof scope, not merely the presence of formulas.
+
+## User-approved editorial refinement
+
+During implementation, the user asked for simpler explanations of complex equations without glossing over reasoning, and approved applying that standard to all 13 lessons, including six already authored. The `The main equation in plain language` section is now required. A separate editorial revision commit updates the first six added pages and the original three pilot pages before batch 3; batches 3 and 4 follow the same standard. Keep the exact mathematics and conditions, but layer it from intuitive translation to symbols to worked calculation, and state exactly what a proof sketch omits.
+
+- [x] Revise the nine existing lessons and add a test plus browser coverage for substantive plain-language walkthroughs.
 
 ---
 
@@ -177,7 +185,7 @@ Commit: `content: add continued fractions, modular equations, and mock theta les
 
 - [ ] **Step 1: Write failing batch acceptance tests**
 
-Assert both slug records exist and contain conditions, attributed formulas, sourced material, instructional sections, and worked examples.
+Assert both slug records exist and contain conditions, attributed formulas, sourced material, instructional sections, worked examples, and a substantive `The main equation in plain language` walkthrough.
 
 - [ ] **Step 2: Run tests and verify missing-content failures**
 
@@ -186,11 +194,11 @@ Expected: FAIL because the batch pages do not yet exist.
 
 - [ ] **Step 3: Research and write gamma-function approximations**
 
-Define the gamma function and factorial connection, demonstrate a numerical approximation against an exact/small case, state the approximation's range/error behavior, and explain where it is useful without claiming universal superiority.
+Define the gamma function and factorial connection; translate the approximation term by term in plain language; demonstrate a numerical approximation against exact/small cases; state range and error behavior; and explain appropriate use without claiming universal superiority.
 
 - [ ] **Step 4: Research and write Ramanujan's Master Theorem**
 
-Explain Mellin transforms and the theorem's input/output relationship in layers, give a simple worked example under explicit analytic assumptions, state that modern rigorous forms require hypotheses, and cite scholarly sources.
+Explain Mellin transforms and the theorem's input/output relationship in layers, translate each symbol and hypothesis, give a simple worked example with every step justified under explicit analytic assumptions, state that modern rigorous forms require hypotheses, and cite scholarly sources.
 
 - [ ] **Step 5: Verify and commit batch 3**
 
@@ -248,7 +256,7 @@ Commit: `content: add Ramanujan summation and further pi series lessons`.
 
 - [ ] **Step 1: Enable and run the all-13 collection acceptance test**
 
-Assert exact count and sequence of the 13 topic slugs; all markdown slugs equal the manifest; every page has required metadata, formula descriptions, sources, attribution, at least six instructional Markdown sections, at least 600 body words, and at least two worked examples/calculations unless the content test records an explicit exception; 1729 is absent.
+Assert exact count and sequence of the 13 topic slugs; all markdown slugs equal the manifest; every page has required metadata, formula descriptions, sources, attribution, the substantive plain-language equation walkthrough, at least six instructional Markdown sections, at least 600 body words, and at least two worked examples/calculations unless the content test records an explicit exception; 1729 is absent.
 
 - [ ] **Step 2: Verify static output and sitemap**
 

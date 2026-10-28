@@ -99,6 +99,10 @@ The theorem continues forever. It does not say that every partition number is di
 
 The other two congruences work the same way. The progression $7n+5$ begins $5,12,19,26,\ldots$, while $11n+6$ begins $6,17,28,39,\ldots$.
 
+## The main equation in plain language
+
+In $p(5n+4)\equiv0\pmod 5$, n can be any whole number starting at zero. First calculate 5n+4; then count its partitions; the result is always divisible by 5. The symbol ≡0 mod 5 means “has remainder zero when divided by 5.” For n=2, the input is 5·2+4=14, and p(14)=135=5·27, so the claim checks in this case. The statement is not that every p(n) is a multiple of 5, nor that checking a few values proves the rule. The other two formulas make the same kind of promise on different progressions: 7n+5 gives a multiple of 7, and 11n+6 gives a multiple of 11. A proof must explain why each infinite family continues forever.
+
 ## Why use congruences?
 
 The notation $a\equiv b\pmod m$ means that $a$ and $b$ have the same remainder after division by $m$. Saying $p(5n+4)\equiv0\pmod5$ is a compact way of saying:

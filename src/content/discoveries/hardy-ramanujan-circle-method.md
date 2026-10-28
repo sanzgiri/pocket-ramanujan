@@ -63,6 +63,10 @@ For each possible part size m, the geometric series 1+q^m+q^(2m)+⋯ records cho
 
 This product converges for complex q with |q|<1. Cauchy's coefficient formula says that the coefficient can be extracted by integrating the function around a circle |q|=r inside that disk; the formula is included above. The circle is not just a picture: it is a contour in the complex plane on which the generating function can be analyzed.
 
+## The main equation in plain language
+
+The symbol p(n) means “the number of partitions of n.” The formula with the wavy equals sign says: as n gets very large, p(n) is close to the expression on the right, in the sense that their ratio approaches 1. It is not an exact count for small n. The exponential factor is the source of the rapid growth; the square root and 4n√3 scale that growth to a closer estimate. For n=100, substituting 100 gives about 199 million, compared with the exact 190,569,292. The contour equation answers a different question: it tells how to extract the coefficient p(n) from the generating product. The factor q to the power −n−1 selects degree n. To see why the integral selects it, write q=r e^(iθ) and imagine expanding the generating function as p(0)+p(1)q+p(2)q²+…. As θ runs once around the circle, the unwanted powers rotate and average to zero; only the term with power n survives the integral. Any radius r strictly between zero and one works because the product converges throughout that disk.
+
 ## Example 1: a small partition count
 
 For n=5, the seven partitions are 5; 4+1; 3+2; 3+1+1; 2+2+1; 2+1+1+1; and 1+1+1+1+1. Thus p(5)=7. In the generating product, the term q^5 receives one contribution from each of those choices of parts.

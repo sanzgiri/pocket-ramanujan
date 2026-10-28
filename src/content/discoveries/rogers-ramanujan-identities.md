@@ -63,6 +63,10 @@ A factor 1/(1-q^k)=1+q^k+q^(2k)+… records any number of parts equal to k. Mult
 
 The series side has a different interpretation. The denominator (q;q)_n accounts for partitions with at most n parts (equivalently, after conjugation, parts of size at most n), while the powers q^(n²) and q^(n(n+1)) enforce the minimum-difference patterns. The resulting theorems say that the first series counts partitions whose parts differ by at least 2, and the second counts partitions with smallest part at least 2 and successive parts differing by at least 2.
 
+## The main equation in plain language
+
+In each sum, n is a counter: plug in n=0, then 1, then 2, and add the resulting terms. The finite product (q;q)_n is made from the first n factors, such as (1−q)(1−q²) when n=2. On the product side, m=0,1,2,… selects allowed part sizes. For the first identity those sizes are 1, 4, 6, 9, …—numbers leaving remainder 1 or 4 when divided by 5. The identity says both sides count the same objects in two different ways. For a quick check of the second identity, look at the coefficient of q⁴: its n=1 sum-term contributes one, while the product side allows only parts 2 and 3 up to 4, and the only partition is 2+2. The second identity shifts the exponents and the allowed remainders: it counts partitions with a minimum gap and smallest part at least 2, equivalently using sizes congruent to 2 or 3 modulo 5. The restriction |q|<1 makes these infinite sums and products converge; it is not an optional decoration.
+
 ## Example 1: coefficient of q⁴ in the first identity
 
 In the product for residues 1 and 4 modulo 5, the allowed parts up to 4 are 1 and 4. Partitions of 4 using these parts are 4 and 1+1+1+1, so the coefficient is 2.

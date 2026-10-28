@@ -57,6 +57,10 @@ In his final letter to G. H. Hardy in January 1920, Ramanujan listed seventeen q
 
 A q-series is a power series whose coefficients are organized by powers of q. The example displayed above is one of Ramanujan's third-order mock theta functions. Its denominator uses a finite product: for each n, multiply (1+q^j)² for j from 1 through n. The condition |q|<1 ensures the series converges.
 
+## The main equation in plain language
+
+The index n tells us which term to add. For each n, take q to the power n squared, then divide by the square of every factor from (1+q) through (1+q^n). Add all those terms to the initial 1. Because the exponent n² grows quickly, later terms shrink rapidly when |q|<1. At q=1/2, the first added term is 2/9≈0.22222; the next is about 0.01778; the following one is about 0.000439. That is why a few terms already give approximately 1.24044. The coefficient formula near q=0 is another way to summarize the same function: O(q^5) means terms whose powers are at least five have been left off, not that the function is exactly the four displayed terms.
+
 ## Example 1: expand the first few coefficients
 
 For n=1, the summand is q/(1+q)². Its expansion near zero is q−2q²+3q³−4q⁴+…. The n=2 term begins with q⁴, and all later terms begin at still higher powers. Therefore f(q) starts 1+q−2q²+3q³−3q⁴+…. This coefficient calculation agrees with the series shown in the formula panel.

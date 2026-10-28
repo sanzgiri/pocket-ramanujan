@@ -60,6 +60,10 @@ A simple continued fraction repeatedly places a number inside the denominator of
 
 This nesting is useful because the convergents often approximate an irrational number unusually well. A decimal expansion gives one sequence of approximations; a continued fraction exposes the integer structure behind the approximation and can provide best possible rational approximations under precise error criteria.
 
+## The main equation in plain language
+
+In the square-root example, read from the outside inward: begin with 1, then add the reciprocal of 2 plus another reciprocal, continuing forever. Stopping after a few steps gives the fractions 1, 3/2, 7/5, and 17/12. They approach √2 without needing decimal arithmetic to construct them. In the Rogers–Ramanujan fraction, q is a real number between 0 and 1; the nested numerators are q, q², q³, and later powers, and q^(1/5) is the positive fifth root. Its product formula says the same value can be built by multiplying simple factors. At q=0.1, q^(1/5)≈0.6310 and the product is about 0.9100, so R(q)≈0.5741. These are two uses of the same nesting idea, not one equation that should be read as a single calculation.
+
 ## Example 1: approximating the square root of two
 
 The square root of two has the repeating continued fraction 1+1/(2+1/(2+…)). Truncating after no nested reciprocal gives 1. Including one level gives 1+1/2=3/2=1.5. Including another gives 1+1/(2+1/2)=7/5=1.4. The next convergent is 17/12≈1.41667, already close to √2≈1.41421.

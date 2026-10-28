@@ -67,6 +67,10 @@ The index $k$ tells us which term we are adding. At $k=0$, the factorials are si
 
 The factor $1103+26390k$ grows only linearly in $k$. The factorials and the power of $396$ grow much faster, which is why this linear factor does not prevent convergence.
 
+## The main equation in plain language
+
+The left side is one divided by π, not π itself. On the right, start with the constant 2√2/9801, then add one term for each whole-number k beginning at zero. For each term, (4k)! means multiply the integers from 1 through 4k; (k!)⁴ is four copies of k! multiplied together; and 396^(4k) makes the denominator grow extremely fast. The small k=0 term gives 1/π≈0.3183098784, whose reciprocal is π≈3.1415927300. Adding the k=1 term changes the estimate to about 3.1415926535897939. So one additional term improves the approximation dramatically. These are rounded calculations; a rigorous digit claim also needs a bound on the remaining tail and control of rounding.
+
 ## A numerical experiment
 
 If we keep only the $k=0$ term, we obtain an approximation from

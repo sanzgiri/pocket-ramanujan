@@ -42,6 +42,25 @@ test('renders a batch-two modular equation with MathML and neighbor links', asyn
   await expect(page.getByRole('link', { name: /next/i })).toHaveAttribute('href', '/discoveries/mock-theta-functions/');
 });
 
+test('all current lessons render the plain-language equation walkthrough', async ({ page }) => {
+  const slugs = [
+    'partition-congruences',
+    'pi-series',
+    'highly-composite-numbers',
+    'hardy-ramanujan-circle-method',
+    'rogers-ramanujan-identities',
+    'ramanujan-tau-function',
+    'continued-fractions',
+    'modular-equations',
+    'mock-theta-functions',
+  ];
+
+  for (const slug of slugs) {
+    await page.goto(`/discoveries/${slug}/`);
+    await expect(page.getByRole('heading', { name: 'The main equation in plain language' })).toBeVisible();
+  }
+});
+
 test('returns a not found response for an unknown discovery', async ({ request }) => {
   const response = await request.get('/discoveries/not-a-discovery/');
   expect(response.status()).toBe(404);

@@ -59,6 +59,10 @@ The tau function begins with a product, not with a counting rule. Let z be a com
 
 The first terms are q - 24q² + 252q³ - 1472q⁴ + 4830q⁵ + …. Thus tau(1)=1, tau(2)=-24, tau(3)=252, and tau(4)=-1472. The product is also the modular discriminant, a cusp form of weight 12 for the full modular group. “Cusp form” means, roughly, a modularly symmetric function that vanishes at the cusp; its Fourier coefficients carry rich arithmetic information.
 
+## The main equation in plain language
+
+The letter z is a point above the real axis in the complex plane; that condition makes q=e^(2πiz) have size less than 1, so the product converges. In the product, start with q, then multiply by (1−q)^24, (1−q²)^24, and so on. Expanding gives a power series: the number multiplying q^n is tau(n). For example, the coefficient of q² is −24, so tau(2)=−24. A separate formula gives a recurrence: for a prime p, the value at the next power p^(r+1) is tau(p) times the previous value minus p^11 times the value two steps back. At p=2 this gives tau(4)=(-24)^2−2^11·1=−1472. The bound involving p applies only when p is prime; Ramanujan conjectured it, and Deligne later proved it.
+
 ## Example 1: expand enough to find tau(2)
 
 To get the coefficient tau(2), only the first few factors matter. In (1-q)^24, the linear term is -24q. Every factor (1-q^n)^24 for n≥2 begins at degree q² or higher. Multiplying by the initial q therefore gives coefficient -24 for q². Hence tau(2)=-24.
