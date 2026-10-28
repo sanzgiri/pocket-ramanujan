@@ -1,61 +1,46 @@
 {
   "plan": {
-    "goal": "Turn Pocket Ramanujan into a deeply instructional, source-led collection of accessible Ramanujan mathematics.",
+    "goal": "Expand Pocket Ramanujan to 13 detailed, sourced topics and deploy the complete collection.",
     "success_criteria": [
-      "At least 10 detailed discovery lessons are published.",
-      "Every lesson follows the standard lesson template and has verified sources.",
-      "Every formula has accessible rendered math and a plain-language interpretation.",
-      "Applications are distinguished from later theoretical influence.",
-      "Search visibly uses Pagefind and topic navigation remains crawlable.",
-      "The production verification suite remains green."
+      "All 13 planned discovery pages exist and are statically generated.",
+      "Each lesson meets the detailed teaching, examples, source, formula, and attribution standard.",
+      "Discovery order and previous/next navigation follow one stable manifest.",
+      "All unit, content, browser, link, and build checks pass.",
+      "The complete site is deployed at the current canonical Vercel URL and all changes are pushed to GitHub."
     ],
-    "deliverable": "A documented editorial, content, navigation, accessibility, and production roadmap in docs/NEXT-STEPS.md.",
+    "deliverable": "Ten additional detailed lessons, consistent navigation, verified production deployment, and committed/pushed changes.",
     "subgoals": [
-      {"id": "S1", "description": "Define and enforce a detailed lesson editorial standard.", "success_test": "Checklist and content schema support complete instructional lessons."},
-      {"id": "S2", "description": "Expand the collection from three pilots to at least ten lessons.", "success_test": "Ten source-backed lessons build and render without math errors."},
-      {"id": "S3", "description": "Make navigation support learning progression and prerequisites.", "success_test": "Guided, topic, difficulty, related, and prerequisite navigation are crawlable."},
-      {"id": "S4", "description": "Make search and accessibility production-quality.", "success_test": "Visible Pagefind search and keyboard/screen-reader checks pass."},
-      {"id": "S5", "description": "Harden editorial contribution and deployment workflows.", "success_test": "Correction, review, deployment, sitemap, and indexing workflows are documented."}
+      {"id":"S1","description":"Establish a consistent editorial standard and collection order.","success_test":"Guidelines and ordered manifest tests pass."},
+      {"id":"S2","description":"Publish batch 1: circle method, Rogers–Ramanujan identities, tau function.","success_test":"Three validated source-backed pages build with correct attribution."},
+      {"id":"S3","description":"Publish batch 2: continued fractions, modular equations, mock theta functions.","success_test":"Three validated lessons build and pass browser checks."},
+      {"id":"S4","description":"Publish batch 3: gamma approximations, Master Theorem.","success_test":"Two validated lessons build with formula conditions and examples."},
+      {"id":"S5","description":"Publish batch 4: divergent-series summation, further pi series.","success_test":"Two validated lessons build with key mathematical caveats."},
+      {"id":"S6","description":"Verify all 13 topics, deploy, and push changes to GitHub.","success_test":"Full suite passes, production routes and sitemap return 200, remote main matches local HEAD."}
     ],
     "tasks": [
-      {"id": "T1", "description": "Create the lesson template and editorial review checklist.", "required_agent": "planning", "expected_output": "A versioned template/checklist used by every future lesson.", "estimated_effort": "S", "prerequisites": []},
-      {"id": "T2", "description": "Review and deepen the three pilot lessons against the template.", "required_agent": "critic", "expected_output": "Reviewed pilot content with factual, attribution, and pedagogy corrections.", "estimated_effort": "M", "prerequisites": ["T1"]},
-      {"id": "T3", "description": "Research and source the next seven lessons.", "required_agent": "research", "expected_output": "Source packets and outlines for circle method, Rogers–Ramanujan identities, tau, continued fractions, modular equations, mock theta functions, and gamma approximations.", "estimated_effort": "L", "prerequisites": ["T1"]},
-      {"id": "T4", "description": "Write and publish the next seven detailed lessons.", "required_agent": "execution", "expected_output": "Seven validated Markdown lessons with examples, proof sketches, applications/influence, and sources.", "estimated_effort": "L", "prerequisites": ["T2", "T3"]},
-      {"id": "T5", "description": "Add prerequisites, topic landing pages, and expanded guided navigation.", "required_agent": "execution", "expected_output": "Crawlable learning paths and related-topic navigation.", "estimated_effort": "M", "prerequisites": ["T4"]},
-      {"id": "T6", "description": "Wire visible search directly to Pagefind and improve filters.", "required_agent": "execution", "expected_output": "Pagefind-backed search with topic, difficulty, and empty-state behavior.", "estimated_effort": "M", "prerequisites": ["T4"]},
-      {"id": "T7", "description": "Run accessibility, link, math-rendering, and production quality review.", "required_agent": "critic", "expected_output": "Review report and fixes for critical/important findings.", "estimated_effort": "M", "prerequisites": ["T5", "T6"]},
-      {"id": "T8", "description": "Connect GitHub/Vercel automation and submit the sitemap for indexing.", "required_agent": "execution", "expected_output": "Automatic deploy workflow, verified canonical domain, and Search Console submission instructions completed.", "estimated_effort": "S", "prerequisites": ["T7"]}
+      {"id":"T1","description":"Add lesson authoring standards, 13-slug manifest, and manifest-backed navigation.","required_agent":"execution","expected_output":"Editorial guide, stable order helper, navigation changes, passing manifest tests.","estimated_effort":"M","prerequisites":[]},
+      {"id":"T2","description":"Research, author, and verify batch 1 lessons.","required_agent":"execution","expected_output":"Circle method, Rogers–Ramanujan, and tau-function lesson files with vetted sources and examples.","estimated_effort":"L","prerequisites":["T1"]},
+      {"id":"T3","description":"Research, author, and verify batch 2 lessons.","required_agent":"execution","expected_output":"Continued-fractions, modular-equations, and mock-theta lesson files.","estimated_effort":"L","prerequisites":["T2"]},
+      {"id":"T4","description":"Research, author, and verify batch 3 lessons.","required_agent":"execution","expected_output":"Gamma-approximation and Master-Theorem lesson files.","estimated_effort":"L","prerequisites":["T3"]},
+      {"id":"T5","description":"Research, author, and verify batch 4 lessons.","required_agent":"execution","expected_output":"Ramanujan-summation and further-pi-series lesson files.","estimated_effort":"L","prerequisites":["T4"]},
+      {"id":"T6","description":"Run final all-topic acceptance, full tests, production deploy, and GitHub push.","required_agent":"execution","expected_output":"13 pages in output/sitemap, verified Vercel release, clean pushed main branch.","estimated_effort":"M","prerequisites":["T5"]}
     ],
-    "dependencies": [
-      {"from": "T1", "to": "T2"},
-      {"from": "T1", "to": "T3"},
-      {"from": "T2", "to": "T4"},
-      {"from": "T3", "to": "T4"},
-      {"from": "T4", "to": "T5"},
-      {"from": "T4", "to": "T6"},
-      {"from": "T5", "to": "T7"},
-      {"from": "T6", "to": "T7"},
-      {"from": "T7", "to": "T8"}
+    "dependencies":[{"from":"T1","to":"T2"},{"from":"T2","to":"T3"},{"from":"T3","to":"T4"},{"from":"T4","to":"T5"},{"from":"T5","to":"T6"}],
+    "critical_path":["T1","T2","T3","T4","T5","T6"],
+    "parallel_groups":[],
+    "milestones":[
+      {"name":"Authoring foundation","after_task":"T1","verification":"Guidelines and ordering tests pass."},
+      {"name":"First six added topics","after_task":"T3","verification":"Six lessons validate and render."},
+      {"name":"All ten additions","after_task":"T5","verification":"All planned lessons exist and content tests pass."},
+      {"name":"Production release","after_task":"T6","verification":"Production routes, sitemap, math, and GitHub HEAD verified."}
     ],
-    "critical_path": ["T1", "T3", "T4", "T5", "T7", "T8"],
-    "parallel_groups": [["T2", "T3"], ["T5", "T6"]],
-    "milestones": [
-      {"name": "Editorial standard", "after_task": "T1", "verification": "Template and checklist committed."},
-      {"name": "Ten-lesson library", "after_task": "T4", "verification": "Ten lessons build, render, and pass content validation."},
-      {"name": "Learning navigation", "after_task": "T6", "verification": "Guided/category navigation and Pagefind search pass browser tests."},
-      {"name": "Production-ready release", "after_task": "T8", "verification": "All checks pass, deployment is automatic, and sitemap is submitted."}
+    "risks":[
+      {"task":"T2","risk":"Rogers–Ramanujan attribution is historically nuanced.","mitigation":"Compare original and scholarly historical sources; label independent discovery and later proofs carefully.","likelihood":"medium","impact":"high"},
+      {"task":"T3","risk":"Mock theta functions are easy to overstate using modern definitions retroactively.","mitigation":"Separate Ramanujan's original language from posthumous theory and cite both periods.","likelihood":"medium","impact":"high"},
+      {"task":"T4","risk":"The Master Theorem requires hypotheses not suitable for an unqualified beginner statement.","mitigation":"State an illustrative special case and cite the general theorem's analytic assumptions.","likelihood":"medium","impact":"high"},
+      {"task":"T5","risk":"Regularized divergent sums may be mistaken for ordinary convergent sums.","mitigation":"Make the summation method explicit and directly contrast regularized assignment with partial-sum convergence.","likelihood":"medium","impact":"high"},
+      {"task":"T6","risk":"Production deployment or canonical metadata can diverge from the deployed domain.","mitigation":"Smoke-test canonical links, robots, sitemap, public routes, and remote Git head after deploy.","likelihood":"low","impact":"high"}
     ],
-    "risks": [
-      {"task": "T3", "risk": "Some Ramanujan attributions or modern applications are easy to overstate.", "mitigation": "Use primary/annotated sources and label later proofs or influence explicitly.", "likelihood": "medium", "impact": "high"},
-      {"task": "T4", "risk": "Writing seven detailed lessons becomes a large editorial effort.", "mitigation": "Ship in batches of three and require the template before adding more topics.", "likelihood": "high", "impact": "medium"},
-      {"task": "T6", "risk": "Search UI diverges from the generated Pagefind index.", "mitigation": "Add browser tests against the production-built Pagefind bundle and retain crawlable fallback links.", "likelihood": "medium", "impact": "medium"},
-      {"task": "T8", "risk": "Vercel deployment protection or domain changes create an inaccessible canonical URL.", "mitigation": "Verify public HTTP 200 responses, canonical tags, robots, and sitemap after every production deployment.", "likelihood": "medium", "impact": "high"}
-    ],
-    "open_questions": [
-      "Whether future lessons should target one broad audience with layers or separate beginner/intermediate tracks.",
-      "Whether to add illustrations or interactive visualizations after the ten-lesson milestone.",
-      "Whether a custom domain is worth purchasing before SEO work begins."
-    ]
+    "open_questions":[]
   }
 }
