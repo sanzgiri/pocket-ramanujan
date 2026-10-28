@@ -1,5 +1,8 @@
 {
   "plan": {
+    "status": "complete",
+    "completed_at": "2026-10-27",
+    "deployment_url": "https://ramanujan-beta.vercel.app/",
     "goal": "Expand Pocket Ramanujan to 13 detailed, sourced topics and deploy the complete collection.",
     "success_criteria": [
       "All 13 planned discovery pages exist and are statically generated.",
@@ -8,7 +11,7 @@
       "All unit, content, browser, link, and build checks pass.",
       "The complete site is deployed at the current canonical Vercel URL and all changes are pushed to GitHub."
     ],
-    "deliverable": "Ten additional detailed lessons, consistent navigation, verified production deployment, and committed/pushed changes.",
+    "deliverable": "Ten additional detailed lessons, consistent navigation, verified production deployment at https://ramanujan-beta.vercel.app/, and changes committed and pushed to GitHub main.",
     "subgoals": [
       {"id":"S1","description":"Establish a consistent editorial standard and collection order.","success_test":"Guidelines and ordered manifest tests pass."},
       {"id":"S2","description":"Publish batch 1: circle method, Rogers–Ramanujan identities, tau function.","success_test":"Three validated source-backed pages build with correct attribution."},

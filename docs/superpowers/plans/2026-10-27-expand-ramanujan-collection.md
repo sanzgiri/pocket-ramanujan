@@ -271,7 +271,7 @@ Expected: zero diagnostics, all unit/content tests pass, all 13 routes build, no
 
 Review one lesson from each batch plus all content source notes; test narrow-screen formula overflow and MathML labels.
 
-- [ ] **Step 5: Commit final acceptance updates, deploy, and verify production**
+- [x] **Step 5: Commit final acceptance updates, deploy, and verify production**
 
 Commit: `test: accept complete 13-topic collection`. Run `vercel --prod`; verify public HTTP 200 for Home, Browse, Search, one page per batch, `robots.txt`, and `sitemap.xml`; verify canonical URLs and math content.
 
