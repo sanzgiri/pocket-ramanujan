@@ -135,33 +135,33 @@ Commit: `content: add circle method, Rogers-Ramanujan, and tau lessons`.
 - Consumes the canonical `discoveryOrder` and the lesson/source standards from Task 1.
 - Each page satisfies the schema and authoring guide, with reliable source records and accessible formulas.
 
-- [ ] **Step 1: Write failing batch acceptance tests**
+- [x] **Step 1: Write failing batch acceptance tests**
 
 Assert all three records satisfy slug, attribution, sources, lesson sections, example/calculation, formula description, and Explore Further requirements.
 
-- [ ] **Step 2: Run the tests and verify missing-content failures**
+- [x] **Step 2: Run the tests and verify missing-content failures**
 
 Run: `npm test -- tests/content-batch-2.test.ts`
 Expected: FAIL because the batch pages do not yet exist.
 
-- [ ] **Step 3: Research and write the continued-fractions lesson**
+- [x] **Step 3: Research and write the continued-fractions lesson**
 
 Define continued fractions from simple rational approximations, show convergents numerically, explain a Ramanujan-associated continued fraction with valid domain/convergence qualifications, and state attribution carefully for jointly or independently developed named forms.
 
-- [ ] **Step 4: Research and write the modular-equations lesson**
+- [x] **Step 4: Research and write the modular-equations lesson**
 
 Explain modular equations through a progressively built example/analogy, define all parameters used in the chosen formula, describe the relation to elliptic functions and transformations, and separate Ramanujan's work from modern framework.
 
-- [ ] **Step 5: Research and write the mock-theta lesson**
+- [x] **Step 5: Research and write the mock-theta lesson**
 
 Explain the q-series setting, the original “mock theta” context and uncertainty in Ramanujan's letter, a sample series/pattern, and how later work by Watson and Zwegers clarified the theory. Do not present the modern definition as Ramanujan's own formulation.
 
-- [ ] **Step 6: Verify batch 2**
+- [x] **Step 6: Verify batch 2**
 
 Run: `npm test -- tests/content-batch-2.test.ts && npm run check && npm run build && npm run check:links && npx playwright test tests/discovery-pages.spec.ts`
 Expected: all batch pages build and representative equations expose MathML.
 
-- [ ] **Step 7: Commit batch 2**
+- [x] **Step 7: Commit batch 2**
 
 Commit: `content: add continued fractions, modular equations, and mock theta lessons`.
 

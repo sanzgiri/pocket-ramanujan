@@ -32,6 +32,16 @@ test('renders a batch-one lesson with described KaTeX MathML and ordered navigat
   await expect(page.getByRole('link', { name: /next/i })).toHaveAttribute('href', '/discoveries/rogers-ramanujan-identities/');
 });
 
+test('renders a batch-two modular equation with MathML and neighbor links', async ({ page }) => {
+  await page.goto('/discoveries/modular-equations/');
+  await expect(page.getByRole('heading', { name: "Ramanujan's Modular Equations" })).toBeVisible();
+  const formula = page.locator('.math-block').first();
+  await expect(formula).toHaveAttribute('aria-label', 'Degree-two modular equation for the lambda function');
+  await expect(formula.locator('.katex-mathml math')).toHaveCount(1);
+  await expect(page.getByRole('link', { name: /previous/i })).toHaveAttribute('href', '/discoveries/continued-fractions/');
+  await expect(page.getByRole('link', { name: /next/i })).toHaveAttribute('href', '/discoveries/mock-theta-functions/');
+});
+
 test('returns a not found response for an unknown discovery', async ({ request }) => {
   const response = await request.get('/discoveries/not-a-discovery/');
   expect(response.status()).toBe(404);
