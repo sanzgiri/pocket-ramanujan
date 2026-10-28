@@ -183,24 +183,24 @@ Commit: `content: add continued fractions, modular equations, and mock theta les
 **Interfaces:**
 - Both lessons use the shared manifest, schema, authoring guide, formula components, and sources components.
 
-- [ ] **Step 1: Write failing batch acceptance tests**
+- [x] **Step 1: Write failing batch acceptance tests**
 
-Assert both slug records exist and contain conditions, attributed formulas, sourced material, instructional sections, worked examples, and a substantive `The main equation in plain language` walkthrough.
+Assert both slug records exist and contain conditions, attributed formulas, sourced material, instructional sections, worked examples, and a substantive `The main equation in plain language` walkthrough of at least 80 words.
 
-- [ ] **Step 2: Run tests and verify missing-content failures**
+- [x] **Step 2: Run tests and verify missing-content failures**
 
 Run: `npm test -- tests/content-batch-3.test.ts`
 Expected: FAIL because the batch pages do not yet exist.
 
-- [ ] **Step 3: Research and write gamma-function approximations**
+- [x] **Step 3: Research and write gamma-function approximations**
 
 Define the gamma function and factorial connection; translate the approximation term by term in plain language; demonstrate a numerical approximation against exact/small cases; state range and error behavior; and explain appropriate use without claiming universal superiority.
 
-- [ ] **Step 4: Research and write Ramanujan's Master Theorem**
+- [x] **Step 4: Research and write Ramanujan's Master Theorem**
 
 Explain Mellin transforms and the theorem's input/output relationship in layers, translate each symbol and hypothesis, give a simple worked example with every step justified under explicit analytic assumptions, state that modern rigorous forms require hypotheses, and cite scholarly sources.
 
-- [ ] **Step 5: Verify and commit batch 3**
+- [x] **Step 5: Verify and commit batch 3**
 
 Run: `npm test -- tests/content-batch-3.test.ts && npm run check && npm run build && npm run check:links && npx playwright test tests/discovery-pages.spec.ts`
 Expected: both routes build and formulas render.

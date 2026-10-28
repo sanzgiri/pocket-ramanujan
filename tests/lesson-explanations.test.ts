@@ -13,6 +13,8 @@ const slugs = [
   'continued-fractions',
   'modular-equations',
   'mock-theta-functions',
+  'gamma-function-approximations',
+  'ramanujan-master-theorem',
 ];
 
 function plainLanguageWalkthrough(body: string) {

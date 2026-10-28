@@ -53,6 +53,8 @@ test('all current lessons render the plain-language equation walkthrough', async
     'continued-fractions',
     'modular-equations',
     'mock-theta-functions',
+    'gamma-function-approximations',
+    'ramanujan-master-theorem',
   ];
 
   for (const slug of slugs) {
