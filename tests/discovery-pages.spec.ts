@@ -79,6 +79,23 @@ test('all current lessons render the plain-language equation walkthrough', async
   }
 });
 
+test('representative batch formulas fit mobile viewports without page overflow', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  for (const slug of [
+    'hardy-ramanujan-circle-method',
+    'modular-equations',
+    'gamma-function-approximations',
+    'ramanujan-summation',
+  ]) {
+    await page.goto(`/discoveries/${slug}/`);
+    const pageOverflows = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
+    expect(pageOverflows, `${slug} should not overflow the viewport`).toBe(false);
+    const formula = page.locator('.math-block').first();
+    await expect(formula).toHaveCSS('overflow-x', 'auto');
+    await expect(formula.locator('.katex-mathml math')).toHaveCount(1);
+  }
+});
+
 test('makes the Ramanujan-summation caution visible to readers', async ({ page }) => {
   await page.goto('/discoveries/ramanujan-summation/');
   await expect(page.getByRole('heading', { name: 'Ordinary convergence versus Ramanujan summation' })).toBeVisible();

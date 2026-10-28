@@ -20,7 +20,7 @@ exploreFurther:
   - type: original-paper
     title: Modular Equations and Approximations to π
     description: Ramanujan's 1914 paper containing formulas for pi derived from modular equations.
-    url: https://archive.org/details/collectedpaperso00rama
+    url: https://archive.org/details/collectedpaperso0000rama
     difficulty: advanced
   - type: scholarly-reference
     title: Ramanujan, Modular Equations, and Approximations to Pi
@@ -36,7 +36,7 @@ sources:
   - title: Modular Equations and Approximations to π
     author: S. Ramanujan
     type: primary
-    url: https://archive.org/details/collectedpaperso00rama
+    url: https://archive.org/details/collectedpaperso0000rama
     locator: Collected Papers of Srinivasa Ramanujan, 1927; original article in Quarterly Journal of Mathematics, volume 45 (1914), pages 350–372.
   - title: Ramanujan, Modular Equations, and Approximations to Pi; Or How to Compute One Billion Digits of Pi
     author: J. M. Borwein, P. B. Borwein, and D. H. Bailey

@@ -19,6 +19,7 @@ const expectedOrder = [
 
 describe('discovery order', () => {
   it('defines the exact stable 13-topic learning path', () => {
+    expect(discoveryOrder).toHaveLength(13);
     expect(discoveryOrder).toEqual(expectedOrder);
     expect(new Set(discoveryOrder).size).toBe(discoveryOrder.length);
     expect(discoveryOrder).not.toContain('1729');

@@ -31,7 +31,7 @@ sources:
   - title: Highly composite numbers
     author: S. Ramanujan
     type: primary
-    url: https://archive.org/details/collectedpaperso00rama
+    url: https://archive.org/details/collectedpaperso0000rama
   - title: Srinivasa Aiyangar Ramanujan
     author: MacTutor History of Mathematics
     type: explainer
@@ -77,7 +77,7 @@ Each exponent contributes one more choice because a divisor may use between zero
 
 If the prime factorization is n=p₁^a₁p₂^a₂⋯pᵣ^aᵣ, then a divisor chooses an exponent independently for each prime. For p₁ it can choose 0 through a₁, giving a₁+1 options; for p₂ it has a₂+1 options; multiply all those counts to get d(n). For 12=2²·3, there are 3 choices for the power of 2 and 2 choices for the power of 3, hence d(12)=3·2=6. For 60=2²·3·5, the choices are 3·2·2=12. The formula counts divisors, but being highly composite asks a second question: does that count beat every smaller integer's count? The factorization alone gives the divisor count; checking record status requires comparing with earlier numbers.
 
-## The first record-holders
+## Example 1: the first record-holders
 
 The beginning of the sequence is:
 
@@ -95,7 +95,7 @@ The beginning of the sequence is:
 
 Notice that 18 is not highly composite: it has six divisors, but 12 is smaller and already has six. A new record must beat every earlier count, not merely have many divisors.
 
-## Why the prime exponents matter
+## Example 2: compare 12 and 18
 
 To maximize the number of divisors for a given size, it is efficient to put larger exponents on smaller primes. Compare $2^2\cdot3=12$ with $2\cdot3^2=18$. Both use two primes, but 12 reaches a divisor count of 6 while staying smaller.
 

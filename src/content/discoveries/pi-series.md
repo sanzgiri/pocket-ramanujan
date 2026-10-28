@@ -35,7 +35,7 @@ sources:
   - title: Collected Papers of Srinivasa Ramanujan
     author: S. Ramanujan
     type: primary
-    url: https://archive.org/details/collectedpaperso00rama
+    url: https://archive.org/details/collectedpaperso0000rama
 related: []
 formulas:
   - label: Ramanujan's rapidly convergent pi series
@@ -71,13 +71,15 @@ The factor $1103+26390k$ grows only linearly in $k$. The factorials and the powe
 
 The left side is one divided by π, not π itself. On the right, start with the constant 2√2/9801, then add one term for each whole-number k beginning at zero. For each term, (4k)! means multiply the integers from 1 through 4k; (k!)⁴ is four copies of k! multiplied together; and 396^(4k) makes the denominator grow extremely fast. The small k=0 term gives 1/π≈0.3183098784, whose reciprocal is π≈3.1415927300. Adding the k=1 term changes the estimate to about 3.1415926535897939. So one additional term improves the approximation dramatically. These are rounded calculations; a rigorous digit claim also needs a bound on the remaining tail and control of rounding.
 
-## A numerical experiment
+## Example 1: keep only the k=0 term
 
 If we keep only the $k=0$ term, we obtain an approximation from
 
 $$
 \frac{1}{\pi}\approx\frac{2\sqrt2}{9801}\cdot1103.
 $$
+
+## Example 2: add the k=1 term
 
 Adding the $k=1$ term changes the result by a very small amount but corrects a large block of decimal digits. This is the practical meaning of rapid convergence: precision improves in chunks, not one reluctant digit at a time.
 

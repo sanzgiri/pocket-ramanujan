@@ -254,20 +254,20 @@ Commit: `content: add Ramanujan summation and further pi series lessons`.
 - Sitemap includes all 13 topic routes.
 - `main` remains the deployment branch and tracks `origin/main`.
 
-- [ ] **Step 1: Enable and run the all-13 collection acceptance test**
+- [x] **Step 1: Enable and run the all-13 collection acceptance test**
 
 Assert exact count and sequence of the 13 topic slugs; all markdown slugs equal the manifest; every page has required metadata, formula descriptions, sources, attribution, the substantive plain-language equation walkthrough, at least six instructional Markdown sections, at least 600 body words, and at least two worked examples/calculations unless the content test records an explicit exception; 1729 is absent.
 
-- [ ] **Step 2: Verify static output and sitemap**
+- [x] **Step 2: Verify static output and sitemap**
 
 Run production build and inspect `dist/discoveries/` for all 13 routes; inspect `dist/sitemap.xml` to ensure all are listed.
 
-- [ ] **Step 3: Run the full local suite**
+- [x] **Step 3: Run the full local suite**
 
 Run: `npm run check && npm test && npm run build && npm run check:links && npx playwright test`
 Expected: zero diagnostics, all unit/content tests pass, all 13 routes build, no broken internal links, and all browser tests pass.
 
-- [ ] **Step 4: Review mathematical attribution and representative mobile rendering**
+- [x] **Step 4: Review mathematical attribution and representative mobile rendering**
 
 Review one lesson from each batch plus all content source notes; test narrow-screen formula overflow and MathML labels.
 

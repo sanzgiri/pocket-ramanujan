@@ -85,23 +85,21 @@ The first few values are:
 
 Already, the sequence grows in a way that is difficult to guess from the definition alone.
 
-## Reading the first congruence
+## Reading the congruence notation
 
-Take $p(5n+4)\equiv0\pmod{5}$. The expression $5n+4$ selects the numbers $4,9,14,19,24,\ldots$.
-
-For $n=0$, we get $p(4)=5$, which is divisible by $5$.
-
-For $n=1$, we get $p(9)=30$, which is divisible by $5$.
-
-For $n=2$, we get $p(14)=135$, which is divisible by $5$.
-
-The theorem continues forever. It does not say that every partition number is divisible by $5$; it says that numbers in one particular arithmetic progression always produce a multiple of $5$.
-
-The other two congruences work the same way. The progression $7n+5$ begins $5,12,19,26,\ldots$, while $11n+6$ begins $6,17,28,39,\ldots$.
+The expression $5n+4$ selects the numbers $4,9,14,19,24,\ldots$ as n runs through the nonnegative integers. The congruence claims that the partition count at each selected input has remainder zero after division by 5. The equation's plain-language walkthrough comes first; the following examples check small cases without confusing evidence with proof.
 
 ## The main equation in plain language
 
 In $p(5n+4)\equiv0\pmod 5$, n can be any whole number starting at zero. First calculate 5n+4; then count its partitions; the result is always divisible by 5. The symbol ≡0 mod 5 means “has remainder zero when divided by 5.” For n=2, the input is 5·2+4=14, and p(14)=135=5·27, so the claim checks in this case. The statement is not that every p(n) is a multiple of 5, nor that checking a few values proves the rule. The other two formulas make the same kind of promise on different progressions: 7n+5 gives a multiple of 7, and 11n+6 gives a multiple of 11. A proof must explain why each infinite family continues forever.
+
+## Example 1: check the first progression
+
+For $n=0$, the input is $5\cdot0+4=4$, and $p(4)=5=5\cdot1$. For $n=1$, the input is 9 and $p(9)=30=5\cdot6$. For $n=2$, the input is 14 and $p(14)=135=5\cdot27$. Each example has remainder zero after division by 5, as the theorem predicts; these checks illustrate the rule but do not prove all cases.
+
+## Example 2: check the other progressions
+
+At $n=0$, the second rule uses $7\cdot0+5=5$, and $p(5)=7$ is divisible by 7. The third uses $11\cdot0+6=6$, and $p(6)=11$ is divisible by 11. At $n=1$, the corresponding counts are $p(12)=77=7\cdot11$ and $p(17)=297=11\cdot27$. These calculations show how each progression chooses its input and its own modulus.
 
 ## Why use congruences?
 
